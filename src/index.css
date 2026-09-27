@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rose: #c58a8b;
+  --rose-deep: #a5646a;
+  --cream: #fbf3ec;
+  --cocoa: #2b1710;
+  --caramel: #d9a24b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--cocoa);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--rose);
+  color: var(--cream);
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--caramel);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--rose);
+  border-radius: 8px;
+}
+
+/* Custom cursor is disabled automatically on touch via JS,
+   this just hides the native cursor on devices where it's active */
+.custom-cursor-active {
+  cursor: none;
+}
+.custom-cursor-active a,
+.custom-cursor-active button {
+  cursor: none;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1.5px var(--cocoa);
+  color: transparent;
+}
+
+@media (max-width: 767px) {
+  .text-outline {
+    -webkit-text-stroke: 1px var(--cocoa);
+  }
+}
